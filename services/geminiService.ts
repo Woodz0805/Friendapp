@@ -1,6 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
+// Check for API key in Vite environment variables or fallback to process.env
+// The 'as any' cast avoids TypeScript errors if types aren't fully set up for import.meta
+const apiKey = (import.meta as any).env?.VITE_API_KEY || (process as any).env?.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
 
 // System instruction for the elderly support assistant

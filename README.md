@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 美PHONE有ㄩ - 熟齡社交 App
 
-# Run and deploy your AI Studio app
+## 如何在 GitHub Pages 上部署
 
-This contains everything you need to run your app locally.
+1. **準備環境**
+   - 確保已安裝 Node.js。
 
-View your app in AI Studio: https://ai.studio/apps/drive/1VCSL809k-lJzCpfT497ut1QEGGH_Q7lf
+2. **安裝套件**
+   在專案根目錄執行：
+   ```bash
+   npm install
+   ```
 
-## Run Locally
+3. **設定 API Key**
+   - 在根目錄建立 `.env` 檔案。
+   - 加入內容：`VITE_API_KEY=你的_GOOGLE_GENAI_API_KEY`
+   - 注意：若部署到 GitHub Pages，請在 GitHub Repo 的 Settings > Secrets and variables > Actions 中設定環境變數，或在 build 過程中注入。但前端靜態網頁暴露 Key 有風險，建議僅供 Demo 或限制 Key 的使用網域。
 
-**Prerequisites:**  Node.js
+4. **本地開發**
+   ```bash
+   npm run dev
+   ```
 
+5. **打包**
+   ```bash
+   npm run build
+   ```
+   打包完成後會產生 `dist` 資料夾。
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+6. **部署**
+   - 將專案推送到 GitHub。
+   - 設定 GitHub Actions 自動部署，或手動將 `dist` 資料夾內容推送到 `gh-pages` 分支。
